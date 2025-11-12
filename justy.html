@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>JusticeGo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/justy.css">
+    <link rel="icon" href="favicon.ico"/>
+
+</head>
+<body>
+  <!-- ====== Header Area ====== -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- Logo -->
+            <a href="beranda.html" class="logo">
+              <img src="assets/images/logo.png" alt="JustyBox Logo" style="height: 45px;">
+            </a>
+            <!-- Menu -->
+            <ul class="nav">
+              <li><a href="beranda.html" class="active" style="color: #3E0703; font-family: Poppins;">Beranda</a></li>
+              <li><a href="layanan.html" style="color: #3E0703;">Layanan</a></li>
+              <li><a href="kontak.html" style="color: #3E0703;">Kontak</a></li>
+              <li><a href="webinar.html" style="color: #3E0703;">Webinar</a></li>
+            </ul>
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== Chatbot Area ====== -->
+  <div class="container">
+    <div class="chat-container">
+      <div class="chat-box" id="chat-box">
+        <div class="bot-message">👋 Hai! Aku JustyBox, asisten analisis hukum digital JusticeGo ⚖️
+          <br><br>
+            Tugasku membantu kamu memahami posisi hukum dari kasus yang kamu hadapi — secara objektif, cepat, dan transparan.
+            Aku bisa bantu menguraikan masalahmu, mengenali aspek hukumnya, dan memberikan gambaran awal pasal-pasal yang mungkin relevan.
+            Tenang aja, semua analisis yang aku berikan berbasis data dan prinsip akuntabilitas — jadi kamu tahu kenapa dan bagaimana kesimpulan itu dihasilkan.
+            Yuk, ceritain sedikit tentang kasus kamu. Kita mulai dari situ 💬
+          </div>
+      </div>
+
+      <div class="input-area">
+        <input type="text" id="user-input" placeholder="Ketik pesan di sini..." autocomplete="off">
+        <button onclick="sendMessage()">Kirim</button>
+        <button onclick="clearHistory()" style="background-color: #662222;">Hapus History</button>
+
+      </div>
+
+      
+    </div>
+  </div>
+
+  <!-- ====== Script ====== -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

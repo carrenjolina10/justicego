@@ -1,0 +1,390 @@
+/* ====== General ====== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fce7e3, #fff);
+  margin: 0;
+  padding: 0;
+  color: #3E0703;
+}
+
+/* ====== Header ====== */
+.header-area {
+  background-color: #F1F0E8;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-area .main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.header-area .nav {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.header-area .nav li a {
+  text-decoration: none;
+  color: #3E0703;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.header-area .nav li a:hover {
+  color: #a13e37;
+}
+
+/* ====== Chat Container ====== */
+.chat-container {
+  width: 100%;
+  max-width: 1000px; /* bisa lebih besar dari 400px */
+  margin: 100px auto 20px; /* top margin untuk navbar */
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: calc(100vh - 120px); /* fullscreen minus navbar */
+}
+
+#clear-history {
+  background-color: #a13e37;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#clear-history:hover {
+  background-color: #3E0703;
+}
+
+
+/* Pop-up Chat JustyBox */
+.chat-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.chat-modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 0;
+  border-radius: 10px;
+  width: 350px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  overflow: hidden;
+}
+
+.chat-header {
+  background-color: #3E0703;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.chat-box {
+  flex-grow: 1; /* ambil semua ruang yang tersedia */
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fffaf9;
+}
+
+
+.chat-input-area {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+}
+
+.chat-input-area button {
+  padding: 10px 15px;
+  background-color: white;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.user-message {
+  text-align: right;
+  margin: 5px 0;
+  background-color: #d1ffd6;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.bot-message {
+  text-align: left;
+  margin: 5px 0;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+
+/* ====== Chat Box ====== */
+.chat-box {
+  flex-grow: 1; /* ambil semua ruang yang tersedia */
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fffaf9;
+}
+
+
+.bot-message, .user-message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 12px;
+  line-height: 1.4;
+  font-size: 15px;
+}
+
+.bot-message {
+  background-color: #ffe5e0;
+  align-self: flex-start;
+}
+
+.user-message {
+  background-color: #f8d1ca;
+  align-self: flex-end;
+}
+
+/* ====== Input Area ====== */
+.input-area {
+  display: flex;
+  border-top: 1px solid #eee;
+  padding: 12px;
+  background: #fff;
+  flex-shrink: 0; /* jangan ikut mengecil */
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: #f8f8f8;
+}
+
+.input-area button {
+  background-color: #63A361;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.input-area button:hover {
+  background-color: #CBDCEB;
+}
+
+/* ====== Scrollbar ====== */
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #d3a29f;
+  border-radius: 10px;
+}
+
+/* Tampilkan menu-trigger di layar kecil (mobile) */
+@media (max-width: 768px) {
+  .header-area .main-nav .menu-trigger {
+    display: block;
+  }
+
+  /* Sembunyikan menu utama nav secara default */
+  .header-area .nav {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #F1F0E8; /* biar ada background kalau muncul */
+    position: absolute;
+    top: 70px; /* sesuaikan dengan tinggi header */
+    right: 20px;
+    width: 200px; /* lebar menu dropdown */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    z-index: 99;
+  }
+
+  /* Jika nav aktif, tampilkan menu */
+  .header-area .nav.active {
+    display: flex;
+  }
+}
+
+
+.header-area .main-nav .menu-trigger {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 33px;
+  width: 32px;
+  height: 40px;
+  text-indent: -9999em;
+  z-index: 99;
+  right: 20px;
+  display: none;
+}
+
+.background-header .main-nav .menu-trigger {
+  top: 17px;
+}
+
+.header-area .main-nav .menu-trigger span,
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after {
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  left: 0;
+}
+
+.background-header .main-nav .menu-trigger span,
+.background-header .main-nav .menu-trigger span:before,
+.background-header .main-nav .menu-trigger span:after {
+  background-color: #fff;
+}
+
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after {
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  left: 0;
+  width: 75%;
+}
+
+.background-header .main-nav .menu-trigger span:before,
+.background-header .main-nav .menu-trigger span:after {
+  background-color: #fff;
+}
+
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after {
+  content: "";
+}
+
+.header-area .main-nav .menu-trigger span {
+  top: 16px;
+}
+
+.header-area .main-nav .menu-trigger span:before {
+  -moz-transform-origin: 33% 100%;
+  -ms-transform-origin: 33% 100%;
+  -webkit-transform-origin: 33% 100%;
+  transform-origin: 33% 100%;
+  top: -10px;
+  z-index: 10;
+}
+
+.header-area .main-nav .menu-trigger span:after {
+  -moz-transform-origin: 33% 0;
+  -ms-transform-origin: 33% 0;
+  -webkit-transform-origin: 33% 0;
+  transform-origin: 33% 0;
+  top: 10px;
+}
+
+.header-area .main-nav .menu-trigger.active span,
+.header-area .main-nav .menu-trigger.active span:before,
+.header-area .main-nav .menu-trigger.active span:after {
+  background-color: transparent;
+  width: 100%;
+}
+
+.header-area .main-nav .menu-trigger.active span:before {
+  -moz-transform: translateY(6px) translateX(1px) rotate(45deg);
+  -ms-transform: translateY(6px) translateX(1px) rotate(45deg);
+  -webkit-transform: translateY(6px) translateX(1px) rotate(45deg);
+  transform: translateY(6px) translateX(1px) rotate(45deg);
+  background-color: #fff;
+}
+
+.background-header .main-nav .menu-trigger.active span:before {
+  background-color: #fff;
+}
+
+.header-area .main-nav .menu-trigger.active span:after {
+  -moz-transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  -ms-transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  -webkit-transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  background-color: #fff;
+}
+
+.background-header .main-nav .menu-trigger.active span:after {
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .header-area .main-nav {
+    padding: 15px 20px; /* kurangin padding supaya muat */
+  }
+
+  .header-area .nav li a {
+    font-size: 16px;
+    padding: 8px 0;
+  }
+}

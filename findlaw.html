@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>JusticeGo</title>
+
+  <!-- Bootstrap & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="icon" href="favicon.ico">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+    }
+
+    .search-container {
+      max-width: 900px;
+      margin: 100px auto 50px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-container h2 {
+      color: #3E0703;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .search-container p {
+      color: #5a3c38;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-box input {
+      padding: 10px 15px;
+      width: 320px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: #3E0703;
+      box-shadow: 0 0 5px rgba(62, 7, 3, 0.3);
+    }
+
+    .search-box button {
+      background-color: #3E0703;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .search-box button:hover {
+      background-color: #66160d;
+    }
+
+    #map {
+      width: 100%;
+      height: 70vh;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    footer {
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body style="background-color: white;">
+
+  <!-- ***** Preloader *****
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- ***** Header ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav d-flex justify-content-between align-items-center">
+            <a href="beranda.html" class="logo">
+              <img src="assets/images/logo.png" alt="JusticeGo" style="height: 45px;">
+            </a>
+            <ul class="nav">
+              <li><a href="beranda.html" style="color:#3E0703;">Beranda</a></li>
+              <li><a href="layanan.html" style="color:#3E0703;">Layanan</a></li>
+              <li><a href="kontak.html" style="color:#3E0703;">Kontak</a></li>
+              <li><a href="webinar.html" style="color:#3E0703;">Webinar</a></li>
+              <li><a href="search-lawyer.html" class="active" style="color:#3E0703; font-weight:600;">Cari Lawyer</a></li>
+            </ul>
+            <a class="menu-trigger"><span>Menu</span></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ***** Section Cari Lawyer ***** -->
+  <section class="search-container text-center">
+    <h2>🔍 Cari Lawyer di Sekitarmu</h2>
+    <p>Masukkan nama kota atau lokasi untuk menemukan pengacara terdekat dari daerahmu.</p>
+
+    <div class="search-box">
+      <input id="location-input" type="text" placeholder="Contoh: Bandung, Jakarta, Surabaya..." />
+      <button onclick="searchLawyers()">Cari</button>
+    </div>
+
+    <div id="map"></div>
+  </section>
+
+  <!-- ***** Footer ***** -->
+  <footer class="bg-light text-dark pt-5 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-uppercase mb-3">Layanan Konsultasi</h5>
+          <ul class="list-unstyled">
+            <li><a href="layanan.html" class="text-dark">Layanan Via Chat</a></li>
+            <li><a href="layanan.html" class="text-dark">Konsultasi Tatap Muka</a></li>
+            <li><a href="layanan.html" class="text-dark">Pendampingan Hukum</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-uppercase mb-3">Customer Service</h5>
+          <p class="mb-1 text-dark">PT Citra Keadilan</p>
+          <p class="small mb-1 text-dark">Jl. Pluit Muara Raya Blok B5 No.7,<br>Jakarta Utara</p>
+          <p class="small mb-0 text-dark">Email: <a href="mailto:halo.justice@gmail.com" class="text-dark">halo.justice@gmail.com</a></p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-uppercase mb-3">Profesi Hukum</h5>
+          <ul class="list-unstyled">
+            <li>Pengacara</li>
+            <li>Konsultan Hukum</li>
+            <li>Jaksa</li>
+            <li>Hakim</li>
+            <li>Notaris</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-uppercase mb-3">Jam Operasional</h5>
+          <p class="small mb-1 text-dark">08.00–17.00 WIB (Senin–Jumat)</p>
+        </div>
+      </div>
+
+      <hr class="border-secondary">
+      <div class="row text-center">
+        <div class="col-12">
+          <p class="mb-0 small text-dark">
+            Copyright © 2025 <a href="#" class="text-dark">JusticeGo</a> - Citra Keadilan. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+
+    // Inisialisasi peta
+    const map = L.map('map').setView([-6.2, 106.8], 13); // Jakarta default
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    let markersLayer = L.layerGroup().addTo(map);
+
+    async function searchLawyers() {
+      const location = document.getElementById('location-input').value.trim();
+      if (!location) {
+        alert('Masukkan nama kota dulu ya 💁‍♀️');
+        return;
+      }
+
+      markersLayer.clearLayers();
+
+      const geoRes = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`);
+      const geoData = await geoRes.json();
+
+      if (geoData.length === 0) {
+        alert('Lokasi tidak ditemukan 😢');
+        return;
+      }
+
+      const lat = geoData[0].lat;
+      const lon = geoData[0].lon;
+      map.setView([lat, lon], 14);
+      
+      //const radius = 10000; // 10 km
+      const overpassUrl = `https://overpass-api.de/api/interpreter?data=[out:json];
+      (
+        node["office"="lawyer"](around:5000,${lat},${lon});
+        way["office"="lawyer"](around:5000,${lat},${lon});
+        node["office"="notary"](around:5000,${lat},${lon});
+        way["office"="notary"](around:5000,${lat},${lon});
+        node["office"="consultant"](around:5000,${lat},${lon});
+        way["office"="consultant"](around:5000,${lat},${lon});
+        node["office"="accountant"](around:5000,${lat},${lon});
+        way["office"="accountant"](around:5000,${lat},${lon});
+        node["office"="advocate"](around:5000,${lat},${lon});
+        way["office"="advocate"](around:5000,${lat},${lon});
+      );
+      out center;`;
+
+
+      const overRes = await fetch(overpassUrl);
+      const overData = await overRes.json();
+
+      if (!overData.elements || overData.elements.length === 0) {
+        alert('Tidak ada lawyer ditemukan di sekitar lokasi ini 😅');
+        return;
+      }
+
+      overData.elements.forEach(place => {
+        const coords = place.type === "node" ? [place.lat, place.lon] : [place.center.lat, place.center.lon];
+        const name = place.tags.name || "Lawyer tanpa nama";
+        const address = place.tags['addr:street'] || "Alamat tidak tersedia";
+        L.marker(coords)
+          .addTo(markersLayer)
+          .bindPopup(`<strong>${name}</strong><br>${address}`);
+      });
+    }
+  </script>
+
+</body>
+</html>

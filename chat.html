@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>JusticeGo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/chat.css">
+    <link rel="icon" href="favicon.ico"/>
+</head>
+<body style="background-color: white;">
+  <!-- ====== Header Area ====== -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav d-flex justify-content-between align-items-center">
+                      <a href="beranda.html" class="logo">
+                        <img src="assets/images/logo.png" alt="JusticeGo" style="height: 45px;">
+                      </a>
+                      <ul class="nav">
+                          <li><a href="beranda.html" style="color: #3E0703;">Beranda</a></li>
+                          <li><a href="jasa.html" class="active" style="color: #3E0703;">Jasa</a></li>
+                          <li><a href="status.html" style="color: #3E0703;">Status</a></li>
+                          <li><a href="layanan.html" style="color: #3E0703;">Layanan</a></li>
+                        </ul> 
+                        <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ====== Chatbot Area ====== -->
+  <div class="container">
+    <div class="chat-container">
+      <div class="lawyer-chat-box" id="lawyer-chat-box">
+        <div class="bot-message" style="color: black;">Selamat datang di layanan konsultasi hukum kami.
+          <br><br>
+            Kami paham bahwa menghadapi masalah hukum bisa membuat Anda merasa bingung atau khawatir. 
+            Jangan ragu untuk menceritakan apa yang sedang Anda alami, 
+            karena kami di sini untuk mendengarkan dan memberikan solusi terbaik. 
+            Silakan mulai dengan menjelaskan permasalahan atau pertanyaan Anda, dan kami akan berusaha membantu dengan sebaik mungkin.
+          </div>
+      </div>
+
+      <div class="input-area">
+        <input type="text" id="lawyer-user-input" placeholder="Ketik pesan di sini..." autocomplete="off">
+        <button onclick="sendMessage()">Kirim</button>
+        <button onclick="clearHistory()" style="background-color: #662222;">Hapus History</button>
+
+      </div>
+
+      
+    </div>
+  </div>
+
+  <!-- ====== Script ====== -->
+  <script src="assets/js/chat.js" style="color: black;"></script>
+</body>
+</html>
