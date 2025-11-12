@@ -150,7 +150,7 @@ body {
   font-size: 14px;
   color: #37353E;
   background-color: #F7F1DE;
-  border: 1px solid #F7F1DE;
+  border: 1px solid #EBEBEB;
   padding: 12px 30px;
   display: inline-block;
   border-radius: 25px;
@@ -163,8 +163,8 @@ body {
 }
 
 .border-button a:hover {
-  background-color: #CBDCEB;
-  color: #fff;
+  background-color: #EBEBEB;
+  color: black;
 }
 
 .main-button a {
@@ -184,9 +184,9 @@ body {
 }
 
 .main-button a:hover {
-  background-color: #CBDCEB;
-  color: #CBDCEB;
-  border: 1px solid #CBDCEB;
+  background-color: #66160d;
+  color: white;
+  border: 1px solid #66160d;
 }
 
 section {
@@ -789,8 +789,8 @@ Banner Style
   text-align: right;
 }
 #section-1 .main-button a:hover {
-  background-color: #CBDCEB;
-  border-color: #CBDCEB;
+  background-color: #66160d;
+  border-color: #66160d;
   color: #fff;
   opacity: 0.8;
 }
@@ -817,8 +817,8 @@ Banner Style
   margin-bottom: 30px;
 }
 #section-1 .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a:hover {
-  color: #CBDCEB;
-  border-color: #CBDCEB;
+  color: #66160d;
+  border-color: #66160d;
   transition: 0.3s;
 }
 #section-1 .content-slider .slider #top-banner-1 {
@@ -892,7 +892,7 @@ Banner Style
   width: 100%;
 }
 #section-1 .content-slider nav .controls label:hover {
-  color: #CBDCEB;
+  color: #66160d;
 }
 #section-1 .content-slider #banner1:checked ~ .slider #top-banner-1,
 #section-1 .content-slider #banner2:checked ~ .slider #top-banner-2,
@@ -979,8 +979,8 @@ Visit Country Style
 }
 
 .visit-country .item .right-content .main-button a:hover {
-  background-color: #CBDCEB;
-  border-color: #CBDCEB;
+  background-color: #66160d;
+  border-color: #66160d;
   color: #fff;
   opacity: 0.8;
 }
@@ -1043,7 +1043,7 @@ Visit Country Style
 }
 
 .visit-country ul.page-numbers li a:hover {
-  background-color: #CBDCEB;
+  background-color: #66160d;
   color: #fff;
 }
 
@@ -1458,8 +1458,8 @@ About Page Style
 }
 
 .weekly-offers .item .thumb .text .main-button a:hover {
-  background-color: #CBDCEB;
-  border-color: #CBDCEB;
+  background-color: #66160d;
+  border-color: #66160d;
   color: #fff;
   opacity: 0.85;
 }
@@ -1508,7 +1508,7 @@ About Page Style
 .weekly-offers .owl-nav .owl-prev:hover::after,
 .weekly-offers .owl-nav .owl-next:hover::after {
   color: #fff;
-  background-color: #C2E2FA;
+  background-color: #66160d;
 }
 
 .more-about {
@@ -1546,8 +1546,8 @@ About Page Style
 }
 
 .more-about .main-button a:hover {
-  background-color: #CBDCEB;
-  border-color: #CBDCEB;
+  background-color: #66160d;
+  border-color: #66160d;
   color: #fff;
   opacity: 0.85;
 }
@@ -1920,9 +1920,9 @@ body .options .option .label .info .sub {
 }
 
 .best-locations .main-button a:hover {
-  background-color: #CBDCEB;
+  background-color: #66160d;
   color: #fff;
-  border-color: #CBDCEB;
+  border-color: #66160d;
   opacity: 0.85;
 }
 
@@ -2166,8 +2166,8 @@ Reservation Page Style
 }
 
 .second-page-heading .main-button a:hover {
-  border-color: #CBDCEB;
-  background-color: #CBDCEB;
+  border-color: #EBEBEB;
+  background-color: #EBEBEB;
   color: #fff;
 }
 
