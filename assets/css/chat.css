@@ -149,7 +149,7 @@ body {
 .header-area .nav li a {
   text-decoration: none;
   color: #3E0703;
-  font-weight: 500;
+  font-weight: 350;
   transition: 0.2s;
 }
 
@@ -289,6 +289,11 @@ body {
   background: #fffaf9;
 }
 
+a.active {
+  color: white;
+  font-weight: 350;
+  text-decoration: upperline;
+}
 
 .bot-message, .user-message {
   max-width: 80%;
@@ -375,6 +380,47 @@ body {
 
   /* Jika nav aktif, tampilkan menu */
   .header-area .nav.active {
+    display: flex;
+  }
+}
+
+
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.dropdown-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #3E0703;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Mobile style */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    background-color: #F1F0E8;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 180px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .dropdown-btn {
+    display: block;
+  }
+
+  .nav.active {
     display: flex;
   }
 }
